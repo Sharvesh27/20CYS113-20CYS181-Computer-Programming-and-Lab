@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+struct complexnumber {
+    float a, b;
+    char c;
+};
+
+int main() {
+    struct complexnumber cn[3];
+    int i;
+
+    for (i = 0; i < 2; i++) {
+        printf("Enter real number %d: ", i);
+        scanf("%f", &cn[i].a);
+        printf("Enter imaginary number %d: ", i);
+        scanf("%f", &cn[i].b);
+    }
+
+    cn[2].a = (cn[0].a * cn[1].a) - (cn[0].b * cn[1].b);
+    cn[2].b = (cn[0].a * cn[1].b) - (cn[0].b * cn[1].a);
+
+    printf("The product is %f + i%f", cn[2].a, cn[2].b);
+
+    return 0;
+}
